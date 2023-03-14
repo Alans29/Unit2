@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float horizontalInput;
+    public float VerticalInput;
     public float speed = 10.0f;
 
 
@@ -24,6 +25,9 @@ public class PlayerController : MonoBehaviour
         {
 
             horizontalInput = Input.GetAxis("Horizontal");
+            transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+
+            VerticalInput = Input.GetAxis("Vertical");
             transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
 
             if (Input.GetKeyDown(KeyCode.Space))
